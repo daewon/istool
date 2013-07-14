@@ -1,7 +1,7 @@
 {
   "name": "hi",
   "description": "Functional helper library with Higher Order Functions.",
-  "homepage": "http://github.com/daewon/hi",
+  "homepage": "http://daewon.github.io/higher-order.js/",
   "keywords": [
     "util",
     "functional",
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/daewon/hi.git"
+    "url": "git://github.com/daewon/higher-order.js.git"
   },
   "main": "hi.js",
   "version": "0.0.2",
