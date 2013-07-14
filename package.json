@@ -1,0 +1,31 @@
+{
+  "name": "hi",
+  "description": "Functional helper library with Higher Order Functions.",
+  "homepage": "http://github.com/daewon/hi",
+  "keywords": [
+    "util",
+    "functional",
+    "server",
+    "client",
+    "browser",
+    "higher-order",
+    "node"
+  ],
+  "author": {
+    "name": "daewon jeong",
+    "email": "blueiur@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/daewon/hi.git"
+  },
+  "main": "hi.js",
+  "version": "0.0.2",
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "scripts": {
+    "test": "mocha -R spec"
+  },
+  "license": "MIT"
+}

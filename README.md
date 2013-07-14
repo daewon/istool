@@ -1,4 +1,4 @@
-hi
-==
+higher-order
+============
 
-Functional Javascript Library with Higher order functions
+higher order javascript library
