@@ -74,38 +74,34 @@
     };
   };
 
-  // > and
-
   // predicate and composition
-  var and = hi.and = function(/* args */) {
-              var _arguments = slice.call(arguments);
-              return function(el) {
-                for (var i=0, len=_arguments.length; i < len; i++) {
-                  if (!_arguments[i](el)) {
-                    return false;
-                  }
-                }
+  hi.and = function(/* args */) {
+    var _arguments = slice.call(arguments);
+    return function(el) {
+      for (var i=0, len=_arguments.length; i < len; i++) {
+        if (!_arguments[i](el)) {
+          return false;
+        }
+      }
 
-                return true;
-              };
-            };
-
-  // > or
+      return true;
+    };
+  };
 
   // predicate or composition
-  var or = hi.or = function(/* args */) {
-                  var _arguments = slice.call(arguments);
+  hi.or = function(/* args */) {
+    var _arguments = slice.call(arguments);
 
-                      return function(el) {
-                               for (var i=0, len=_arguments.length; i < len; i++) {
-                                 if (_arguments[i](el)) {
-                                   return true;
-                                 }
-                               }
+    return function(el) {
+      for (var i=0, len=_arguments.length; i < len; i++) {
+        if (_arguments[i](el)) {
+          return true;
+        }
+      }
 
-                               return false;
-                             };
-                };
+      return false;
+    };
+  };
 
   // f -> f
   hi.not = function(f) {
@@ -163,9 +159,6 @@
     };
   };
 
-
-
-  // > pluck
   // pluck from object elements
   hi.pluck = function(sProp) {
     var _arguments = sProp.indexOf('.' > -1) ? sProp.split('.') : [sProp];
