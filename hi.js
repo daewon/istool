@@ -26,7 +26,7 @@
       }
     }
   };
-  
+
   // curry & partial
   // from: http://ejohn.org/blog/partial-functions-in-javascript/a
   hi.curry = function(/* arguments */) {
@@ -35,7 +35,7 @@
       return fn.apply(fn, args.concat(slice.call(arguments)));
     };
   };
-  
+
   hi.partial = function(/* arguments */) {
     var fn = head(arguments), args = tail(arguments);
     return function() {
@@ -48,12 +48,12 @@
       return fn.apply(fn, args);
     };
   };
-  
+
   // make comparer func
   // f -> f
   // used with hi.pluck
   hi.compareBy = function(f) {
-    f = f || hi.id ; 
+    f = f || hi.id ;
     return function(a, b) {
       return f(a) - f(b) ;
     };
@@ -78,61 +78,61 @@
 
   // predicate and composition
   var and = hi.and = function(/* args */) {
-    var _arguments = slice.call(arguments);
-    return function(el) {
-      for (var i=0, len=_arguments.length; i < len; i++) {
-        if (!_arguments[i](el)) {
-          return false;
-        }
-      }
+              var _arguments = slice.call(arguments);
+              return function(el) {
+                for (var i=0, len=_arguments.length; i < len; i++) {
+                  if (!_arguments[i](el)) {
+                    return false;
+                  }
+                }
 
-      return true;
-    };
-  };
+                return true;
+              };
+            };
 
   // > or
 
   // predicate or composition
   var or = hi.or = function(/* args */) {
-    var _arguments = slice.call(arguments);
+                  var _arguments = slice.call(arguments);
 
-    return function(el) {
-      for (var i=0, len=_arguments.length; i < len; i++) {
-        if (_arguments[i](el)) {
-          return true;
-        }
-      }
+                      return function(el) {
+                               for (var i=0, len=_arguments.length; i < len; i++) {
+                                 if (_arguments[i](el)) {
+                                   return true;
+                                 }
+                               }
 
-      return false;
-    };
-  };
+                               return false;
+                             };
+                };
 
   // f -> f
   hi.not = function(f) {
-    return function(/* arguments */) {
-      return !f.apply(f, arguments);
-    };
-  };
+             return function(/* arguments */) {
+                  return !f.apply(f, arguments);
+                };
+           };
 
   // f -> f
   hi.eq = function(src) {
-    return function(target) {
-      return src === target;
-    };
-  };
-  
+           return function(target) {
+             return src === target;
+           };
+         };
+
   // f -> f
   hi.ne = function(src) {
-    return function(target) {
-      return src !== target;
-    };
-  };
+         return function(target) {
+                 return src !== target;
+               };
+       };
 
   // any -> true
   hi['true'] = function() {
-    return true;
-  };
-  
+               return true;
+             };
+
   // any -> true
   hi['false'] = function() {
     return true;
@@ -155,7 +155,7 @@
   // f* -> f
   hi.comp = function(/* arguments */) {
     var arg = copy(arguments).reverse(), h = shift.call(arg), t = arg;
-    
+
     return function() {
       var ret = h.apply(arguments, arguments);
       each(t, function(f) { ret = f.call(f, ret); });
@@ -189,7 +189,7 @@
     };
   };
 
-  // invoke method from object 
+  // invoke method from object
   hi.invoke = function(/* arguments */) {
     var _arguments = copy(arguments) ;
 
@@ -213,12 +213,12 @@
   };
 
   // > eq, ne, lt, gt, le, ge
-  var eq = hi.eq = hi.curry(op, eq2);
-  var ne = hi.ne = hi.curry(op, ne2);
-  var lt = hi.lt = hi.curry(op, lt2);
-  var gt = hi.gt = hi.curry(op, gt2);
-  var le = hi.le = hi.curry(op, le2);
-  var ge = hi.ge = hi.curry(op, ge2);
+  hi.eq = hi.curry(op, eq2);
+  hi.ne = hi.curry(op, ne2);
+  hi.lt = hi.curry(op, lt2);
+  hi.gt = hi.curry(op, gt2);
+  hi.le = hi.curry(op, le2);
+  hi.ge = hi.curry(op, ge2);
 
   var propOp = function(op) {
     var args = tail(arguments);
@@ -251,13 +251,13 @@
       return op2(elA, elB);
     };
   };
-  
-  // > peq, pne, plt, pgt, ple, pge  
-  hi.ieq = hi.curry(invokeOp, eq2);  
-  hi.ieq2 = hi.curry(invokeOp2, eq2);  
+
+  // > peq, pne, plt, pgt, ple, pge
+  hi.ieq = hi.curry(invokeOp, eq2);
+  hi.ieq2 = hi.curry(invokeOp2, eq2);
   hi.peq = hi.curry(propOp, eq2);
   hi.peq2 = hi.curry(propOp2, eq2);
-  
+
   hi.ine = hi.curry(invokeOp, ne2);
   hi.ine2 = hi.curry(invokeOp2, ne2);
   hi.pne = hi.curry(propOp, ne2);
@@ -282,7 +282,7 @@
   hi.ige2 = hi.curry(invokeOp2, ge2);
   hi.pge = hi.curry(propOp, ge2);
   hi.pge2 = hi.curry(propOp2, ge2);
-  
+
   // support amd module
   if (typeof define === "function" && define.amd) {
     define("hi", [], function() { return hi; } );
@@ -293,5 +293,5 @@
       }
     }
   }
-  
+
 })(typeof exports !== 'undefined' ? exports : window );
