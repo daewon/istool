@@ -1,4 +1,4 @@
-var hi = require('../hi');
+var hi = require('../istool');
 var assert = require('assert');
 
 // test object

@@ -1,1 +1,1 @@
-module.exports = require('./hi');
+module.exports = require('./istool');
