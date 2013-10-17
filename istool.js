@@ -105,29 +105,29 @@
 
   // f -> f
   is.not = function(f) {
-             return function(/* arguments */) {
-                  return !f.apply(f, arguments);
-                };
-           };
+    return function(/* arguments */) {
+      return !f.apply(f, arguments);
+    };
+  };
 
   // f -> f
   is.eq = function(src) {
-           return function(target) {
-             return src === target;
-           };
-         };
+    return function(target) {
+      return src === target;
+    };
+  };
 
   // f -> f
   is.ne = function(src) {
-         return function(target) {
-                 return src !== target;
-               };
-       };
+    return function(target) {
+      return src !== target;
+    };
+  };
 
   // any -> true
   is['true'] = function() {
-               return true;
-             };
+    return true;
+  };
 
   // any -> true
   is['false'] = function() {
