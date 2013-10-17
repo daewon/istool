@@ -1,6 +1,10 @@
-higher-order.js
+istool.js
 ============
 
-higher order javascript library
+higher-order functions 
+
+```javascript
+mocha -R spec
+```
 
 [http://daewon.github.io/higher-order.js/](http://daewon.github.io/higher-order.js/)
