@@ -29,7 +29,7 @@ var arr = ['daewon', 'dun'].filter(is.ne('daewon'));
 ```
 
 ##### is.pluck
-`extract field` 
+###### `extract field` 
 
 ```javascript
 var arr = [{name: 'daewon', age: 19}, {name: 'dun', age: 32}].map(is.pluck('name'));
