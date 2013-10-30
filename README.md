@@ -11,7 +11,8 @@ var is = require('istool')
 
 #### API References
 
-##### `equal` is.eq 
+##### is.eq 
+###### `equal` 
 
 ```javascript
 var arr = ['daewon', 'dun'].filter(is.eq('daewon'));
@@ -19,13 +20,17 @@ var arr = ['daewon', 'dun'].filter(is.eq('daewon'));
 ```
 
 
-##### `not equal` is.ne
+##### is.ne
+###### `not equal` 
+
 ```javascript
 var arr = ['daewon', 'dun'].filter(is.ne('daewon'));
 // ['dun']
 ```
 
-##### `pluck` is.pluck
+##### is.pluck
+`extract field` 
+
 ```javascript
 var arr = [{name: 'daewon', age: 19}, {name: 'dun', age: 32}].map(is.pluck('name'));
 // ['daewon', 'dun']
