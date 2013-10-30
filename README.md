@@ -1,4 +1,3 @@
-
 ## istool.js - higher-order functions
 
 ```bash
@@ -26,5 +25,9 @@ var arr = ['daewon', 'dun'].filter(is.ne('daewon'));
 // ['dun']
 ```
 
+##### `pluck` is.pluck
+```javascript
+var arr = [{name: 'daewon', age: 19}, {name: 'dun', age: 32}].map(is.pluck('name'));
+// ['daewon', 'dun']
+```
 
-[http://daewon.github.io/higher-order.js/](http://daewon.github.io/higher-order.js/)
