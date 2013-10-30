@@ -9,7 +9,7 @@ npm install istool
 var is = require('istool')
 ```
 
-#### functions
+#### API References
 
 ##### `equal` is.eq 
 
