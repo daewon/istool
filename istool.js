@@ -34,7 +34,7 @@
     return function() {
       return fn.apply(fn, args.concat(slice.call(arguments)));
     };
-  };
+ };
 
   is.partial = function(/* arguments */) {
     var fn = head(arguments), args = tail(arguments);
@@ -164,7 +164,7 @@
     var _arguments = sProp.indexOf('.' > -1) ? sProp.split('.') : [sProp];
 
     return function(obj) {
-      var args = _arguments ;
+      var args = copy(_arguments) ;
       var prop = args.shift();
 
       while (!(prop === null || typeof prop === "undefined")) {
