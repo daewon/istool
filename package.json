@@ -1,6 +1,6 @@
 {
   "name": "istool",
-  "description": "Functional helper library with Higher Order Functions.",
+  "description": "Functional helper library for Higher order functions.",
   "homepage": "http://daewon.github.io/istool",
   "keywords": [
     "util",
@@ -12,7 +12,7 @@
     "node"
   ],
   "author": {
-    "name": "daewon jeong",
+    "name": "daewon",
     "email": "blueiur@gmail.com"
   },
   "repository": {

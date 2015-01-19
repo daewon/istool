@@ -2,26 +2,27 @@ var is = require('../istool');
 var assert = require('assert');
 
 // test object
-var Person = function(firstName, lastName, yearOfBirth) {
+var Person = function(firstName, lastName, yearOfBirth, info) {
   this.firstName = firstName;
   this.lastName = lastName;
+  this.info = info;
 
   this.fullName = function() {
     return firstName + " " + lastName;
   };
 
-  this.getAge = function() {
+  this.age = function() {
     return (new Date()).getFullYear() - yearOfBirth;
   };
 };
 
 var persons = [
-  new Person('daewon', 'jeong', 1982),
-  new Person('John', 'McCarthy', 1927),
-  new Person('Dennis', 'Ritchie', 1941),
-  new Person('kenneth', 'Thompson', 1943),
-  new Person('Frederick', 'Brooks', 1931),
-  new Person('Donald', 'Knuth', 1938)
+  new Person('daewon', 'jeong', 1982, { like: "LANGUAGE" }),
+  new Person('John', 'McCarthy', 1927, { like: "LISP" }),
+  new Person('Dennis', 'Ritchie', 1941, { like: "C" }),
+  new Person('kenneth', 'Thompson', 1943, { like: "C" }),
+  new Person('Frederick', 'Brooks', 1931, { like: "AI" }),
+  new Person('Donald', 'Knuth', 1938, { like: "ALGORITHM" })
 ];
 
 var nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -52,12 +53,13 @@ describe('is.peq', function() {
 
 describe('is.ieq', function() {
   it('should equal', function() {
-    assert.deepEqual(persons.filter(is.ieq('getAge', 31)), [persons[0]]);
+    assert.deepEqual(persons.filter(is.ieq('age', 33)), [persons[0]]);
   });
 });
 
-describe('is.ieq', function() {
+describe('is.pluck', function() {
   it('should equal', function() {
-    assert.deepEqual(persons.filter(is.ieq('getAge', 31)), [persons[0]]);
+    assert.deepEqual(persons.map(is.pluck('firstName')), ["daewon", "John", "Dennis", "kenneth", "Frederick", "Donald"]);
+    assert.deepEqual(persons.map(is.pluck('info.like')), ["LANGUAGE", "LISP", "C", "C", "AI", "ALGORITHM"]);
   });
 });
